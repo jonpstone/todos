@@ -1,3 +1,4 @@
+require 'pry'
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
 
@@ -54,6 +55,10 @@ class ItemsController < ApplicationController
       format.html { redirect_to items_url, notice: "Item was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def by_date
+    binding.pry
   end
 
   private
