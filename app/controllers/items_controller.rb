@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   end
 
   def by_date
-    binding.pry
+    @items = Item.where(due_at: params[:find_by_date].to_date.all_day)
   end
 
   private
