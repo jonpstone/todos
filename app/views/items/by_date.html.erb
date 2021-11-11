@@ -2,7 +2,7 @@
   <section class="py-5 text-left container">
     <div class="row py-lg-5">
       <div class="col-lg-10 col-md-8 mx-1">
-        <h1 class="fw-light">All Items</h1>
+        <h1 class="fw-light">Items For <%= @items_date %></h1>
       </div>
     </div>
     <div class="row py-lg-1">
@@ -23,7 +23,7 @@
           <%= item.name %>
         </div>
         <div class="col-2 mx-0">
-          <%= item.due_at.strftime("%m/%d/%Y") %> at <%= item.due_at.to_s(:time) %>
+          <%= item.due_at.to_s(:time) %>
         </div>
         <div class="col-3 mx-0">
           <%= link_to item, class: 'text-decoration-none' do %>

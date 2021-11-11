@@ -59,6 +59,8 @@ class ItemsController < ApplicationController
 
   def by_date
     @items = Item.where(due_at: params[:find_by_date].to_date.all_day)
+    @items_date = params[:find_by_date].to_date.strftime("%A, %B %eth, %Y")
+    render :by_date
   end
 
   private

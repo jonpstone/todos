@@ -11,17 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+
+  <div class="col-lg-6 mx-1">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><%= form.label :name %></span>
+      </div>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :due_at %>
-    <%= form.datetime_select :due_at %>
+  <div class="col-lg-6 mx-1">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><%= form.label :due_at %></span>
+      </div>
+      <%= form.datetime_select :due_at, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit "Submit", class: "btn btn-outline-secondary" %>
 <% end %>
