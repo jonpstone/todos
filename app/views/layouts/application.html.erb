@@ -16,19 +16,20 @@
     <div class="collapse" id="navbarToggleExternalContent">
       <div class="bg-dark p-4">
         <div class="col-lg-4">
-          <%= form_with url: by_date_path, method: :get do |form| %>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <button class="btn btn-outline-secondary" type="button">
-                  <%= form.submit "View Date", class: 'remove-submit-btn-style text-light' %>
-                </button>
+          <div class="row">
+            <%= form_with url: by_date_path, method: :get do |form| %>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <%= link_to 'Create New Item', new_item_path, class: "btn btn-primary" %>
+                  &nbsp;<span class="text-light">or</span>&nbsp;
+                  <button class="btn btn-outline-secondary" type="button">
+                    <%= form.submit "View Items By Date", class: 'remove-submit-btn-style text-light' %>
+                  </button>
+                </div>
+                  <%= form.date_field :find_by_date, min: Date.today, class: "form-control datetimepicker" %>
               </div>
-                <%= form.date_field :find_by_date, min: Date.today, class: "form-control datepicker" %>
-            </div>
-          <% end %>
-        </div>
-        <div>
-          <%= link_to 'New Item', new_item_path, class: "btn btn-outline-primary" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
