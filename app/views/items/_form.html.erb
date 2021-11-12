@@ -34,14 +34,14 @@
       <%= form.submit "Submit", class: "btn btn-primary" %>
       <% unless locals[:updating].present? %>
         <%= link_to items_path, class: 'text-decordation-none mx-3', style: "vertical-align: middle;" do %>
-          <i class="bi bi-list-check text-dark" style="font-size: 1.8rem;" title="Back"></i>
+          <i class="bi bi-list-check text-dark" style="font-size: 1.8rem;" title="All Items"></i>
         <% end %>  
       <% else %>
         <%= link_to @item, class: 'text-decoration-none mx-3', style: "vertical-align: middle;" do %>
           <i class="bi bi-binoculars-fill text-dark" style="font-size: 1.8rem;" title="Show"></i>
         <% end %>
         <%= link_to items_path, class: 'text-decordation-none', style: "vertical-align: middle;" do %>
-          <i class="bi bi-list-check text-dark" style="font-size: 1.8rem;" title="Back"></i>
+          <i class="bi bi-list-check text-dark" style="font-size: 1.8rem;" title="All Items"></i>
         <% end %>    
       <% end %>          
     </div>

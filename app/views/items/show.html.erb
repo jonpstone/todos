@@ -1,14 +1,34 @@
-<p id="notice"><%= notice %></p>
+<main>
+  <section class="py-5 text-left container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
-
-<p>
-  <strong>Due at:</strong>
-  <%= @item.due_at %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+    <div class="row py-lg-5">
+      <div class="col-lg-10 col-md-8 mx-1">
+        <span>
+          <strong>Name:</strong>
+          <%= @item.name %>      
+        </span>
+        <span class="mx-4">
+          <strong>Due at:</strong>
+          <%= @item.due_at.strftime("%m/%d/%Y") %> at <%= @item.due_at.to_s(:time) %>      
+        </span>
+        <span>
+          <%= 
+            link_to edit_item_path(@item), 
+            class: 'text-decoration-none', 
+            style: "vertical-align: middle;" do 
+          %>
+            <i class="bi bi-pencil-fill text-dark" style="font-size: 1.3rem;" title="Edit"></i>
+          <% end %>
+          <%= 
+            link_to items_path, 
+            class: 'text-decordation-none mx-3', 
+            style: "vertical-align: middle;" do 
+          %>
+            <i class="bi bi-list-check text-dark" style="font-size: 1.3rem;" title="All Items"></i>
+          <% end %>   
+        </span>
+      </div>
+    </div> 
+  </section>
+</main>
