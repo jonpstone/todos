@@ -6,40 +6,60 @@
       </div>
     </div>
     <div class="row py-lg-1">
-      <div class="row py-lg-1">
-        <div class="col-7 mx-0">
-          Name
+      <% unless @items.empty? %>
+        <div class="row py-lg-1">
+          <div class="col-7 mx-0">
+            Name
+          </div>
+          <div class="col-2 mx-0">
+            Due at
+          </div>
+          <div class="col-1 mx-0">
+            Actions
+          </div>
         </div>
-        <div class="col-2 mx-0">
-          Due at
+        <% @items.each do |item| %>
+          <div class="row py-lg-1">
+            <div class="col-7 mx-0">
+              <%= item.name %>
+            </div>
+            <div class="col-2 mx-0">
+              <%= item.due_at.to_s(:time) %>
+            </div>
+            <div class="col-3 mx-0">
+              <%= 
+                link_to item, 
+                class: 'text-decoration-none', 
+                style: "vertical-align: middle;" do 
+              %>
+                <i class="bi bi-binoculars-fill text-dark"></i>
+              <% end %>
+              <%= 
+                link_to edit_item_path(item), 
+                class: 'text-decoration-none mx-3', 
+                style: "vertical-align: middle;" do 
+              %>
+                <i class="bi bi-pencil-fill text-dark"></i>
+              <% end %>
+              <%= 
+                link_to item, 
+                class: 'text-decoration-none', 
+                method: :delete, 
+                data: { confirm: 'Are you sure?' }, 
+                style: "vertical-align: middle;" do 
+              %>
+                <i class="bi bi-trash-fill text-danger"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="row py-lg-1">
+          <div class="col-12 mx-1">
+            You have no items for today.
+          </div>
         </div>
-        <div class="col-1 mx-0">
-          Actions
-        </div>
-      </div>
-    <% @items.each do |item| %>
-      <div class="row py-lg-1">
-        <div class="col-7 mx-0">
-          <%= item.name %>
-        </div>
-        <div class="col-2 mx-0">
-          <%= item.due_at.to_s(:time) %>
-        </div>
-        <div class="col-3 mx-0">
-          <%= link_to item, class: 'text-decoration-none' do %>
-            <i class="bi bi-binoculars-fill text-dark ml-3"></i>
-          <% end %>
-          &nbsp;
-          <%= link_to edit_item_path(item), class: 'text-decoration-none' do %>
-            <i class="bi bi-pencil-fill text-dark ml-3"></i>
-          <% end %>
-          &nbsp;
-          <%= link_to item, class: 'text-decoration-none', method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="bi bi-trash-fill text-danger"></i>
-          <% end %>
-
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </section>
 </main>

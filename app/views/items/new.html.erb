@@ -1,5 +1,12 @@
-<h1>New Item</h1>
+<main>
+  <section class="py-5 text-left container">
+    <div class="row py-lg-5">
+      <div class="col-lg-10 col-md-8 mx-1">
+        <h1 class="fw-light">New Item</h1>
+      </div>
 
-<%= render 'form', item: @item %>
+    <%= render 'form', item: @item, locals: { new_form: true } %>
 
-<%= link_to 'Back', items_path %>
+    </div>
+  </section>
+</main>

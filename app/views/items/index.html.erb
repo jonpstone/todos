@@ -26,16 +26,19 @@
           <%= item.due_at.strftime("%m/%d/%Y") %> at <%= item.due_at.to_s(:time) %>
         </div>
         <div class="col-3 mx-0">
-          <%= link_to item, class: 'text-decoration-none' do %>
-            <i class="bi bi-binoculars-fill text-dark ml-3"></i>
+          <%= link_to item, class: 'text-decoration-none', style: "vertical-align: middle;" do %>
+            <i class="bi bi-binoculars-fill text-dark" title="Show"></i>
           <% end %>
-          &nbsp;
-          <%= link_to edit_item_path(item), class: 'text-decoration-none' do %>
-            <i class="bi bi-pencil-fill text-dark ml-3"></i>
+          <%= link_to edit_item_path(item), class: 'text-decoration-none mx-3', style: "vertical-align: middle;" do %>
+            <i class="bi bi-pencil-fill text-dark" title="Edit"></i>
           <% end %>
-          &nbsp;
-          <%= link_to item, class: 'text-decoration-none', method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="bi bi-trash-fill text-danger"></i>
+          <%= 
+            link_to item, 
+            class: 'text-decoration-none', 
+            style: "vertical-align: middle;",
+            method: :delete, data: { confirm: 'Are you sure?' } do 
+          %>
+            <i class="bi bi-trash-fill text-danger" title="Back"></i>
           <% end %>
 
         </div>
